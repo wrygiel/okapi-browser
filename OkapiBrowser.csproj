@@ -27,16 +27,16 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://usosphp.mimuw.edu.pl/~rygielski/usosapi-browser/</InstallUrl>
-    <SupportUrl>https://github.com/MUCI/usosapi-browser</SupportUrl>
-    <ErrorReportUrl>https://github.com/MUCI/usosapi-browser</ErrorReportUrl>
+    <InstallUrl>http://usosphp.mimuw.edu.pl/~rygielski/okapi-browser/</InstallUrl>
+    <SupportUrl>https://github.com/wrygiel/okapi-browser</SupportUrl>
+    <ErrorReportUrl>https://github.com/wrygiel/okapi-browser</ErrorReportUrl>
     <TargetCulture>en</TargetCulture>
-    <ProductName>USOS API Browser</ProductName>
-    <PublisherName>MUCI</PublisherName>
-    <SuiteName>USOS</SuiteName>
+    <ProductName>OKAPI Browser</ProductName>
+    <PublisherName>OpenCaching Team</PublisherName>
+    <SuiteName>OpenCaching API</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>19</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

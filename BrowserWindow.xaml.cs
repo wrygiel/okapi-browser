@@ -50,7 +50,7 @@ namespace OkapiBrowser
 
             var motherInstallation = new ApiInstallation
             {
-                base_url = "http://apps.usos.edu.pl/" // will change when out of Beta!
+                base_url = "http://opencaching.pl/okapi/"
             };
             this.apiConnector = new ApiConnector(motherInstallation);
             this.apiConnector.BeginRequest += new EventHandler(apiConnector_BeginRequest);
@@ -241,8 +241,6 @@ namespace OkapiBrowser
             /* Stacking method arguments textboxes... */
 
             var arguments = method.arguments;
-            if (method.auth_options_token != "ignored")
-                arguments.Add(new ApiMethodArgument { name = "as_user_id" });
             foreach (var arg in method.arguments)
             {
                 var singleArgumentStackPanel = new StackPanel
@@ -518,7 +516,7 @@ namespace OkapiBrowser
             if (scopeKeys.Count > 0)
                 request_token_args.Add("scopes", string.Join("|", scopeKeys));
             string request_token_url = this.apiConnector.GetURL(new ApiMethod { name = "services/oauth/request_token" },
-                request_token_args, this.consumerKeyTextbox.Text, this.consumerSecretTextbox.Text, "", "", true);
+                request_token_args, this.consumerKeyTextbox.Text, this.consumerSecretTextbox.Text, "", "", false);
 
             try
             {
@@ -568,7 +566,7 @@ namespace OkapiBrowser
                 var access_token_args = new Dictionary<string, string>();
                 access_token_args.Add("oauth_verifier", verifier);
                 var access_token_url = this.apiConnector.GetURL(new ApiMethod { name = "services/oauth/access_token" }, access_token_args,
-                    this.consumerKeyTextbox.Text, this.consumerSecretTextbox.Text, request_token, request_token_secret, true);
+                    this.consumerKeyTextbox.Text, this.consumerSecretTextbox.Text, request_token, request_token_secret, false);
 
                 /* Get and parse the access_token response string. */
 

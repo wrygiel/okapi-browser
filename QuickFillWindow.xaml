@@ -11,7 +11,7 @@
             <Label Content="2. Open your Browser - a User (you?) has to authorize the Request Token." Padding="0" />
             <Label Content="3. Exchange the (authorized) Request Token for an Access Token." Padding="0" />
         </StackPanel>
-        <StackPanel DockPanel.Dock="Top" Background="#FFD4DEF0">
+        <StackPanel DockPanel.Dock="Top" Background="#FFD4DEF0" Visibility="Hidden">
             <WrapPanel Name="scopeCheckboxesPanel" Margin="8" Background="#FFD4DEF0" />
         </StackPanel>
         <Grid Height="50">

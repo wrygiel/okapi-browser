@@ -244,7 +244,7 @@ namespace OkapiBrowser
             var installations = JArray.Parse(json);
             foreach (JObject installation in installations)
             {
-                results.Add(new ApiInstallation{ base_url = (string)installation["base_url"] });
+                results.Add(new ApiInstallation{ base_url = (string)installation["okapi_base_url"] });
             }
             return results;
         }
@@ -283,9 +283,9 @@ namespace OkapiBrowser
                 description = (string)jmethod["description"],
                 returns = (string)jmethod["returns"],
                 ref_url = (string)jmethod["ref_url"],
-                auth_options_consumer = (string)jauthoptions["consumer"],
-                auth_options_token = (string)jauthoptions["token"],
-                auth_options_ssl_required = (bool)jauthoptions["ssl_required"]
+                auth_options_consumer = ((int)jauthoptions["min_auth_level"]) >= 1 ? "required" : "optional",
+                auth_options_token = ((int)jauthoptions["min_auth_level"]) >= 3 ? "required" : "optional",
+                auth_options_ssl_required = false
             };
             foreach (JObject jarg in (JArray)jmethod["arguments"])
             {
@@ -293,7 +293,7 @@ namespace OkapiBrowser
                     name = (string)jarg["name"],
                     is_required = (bool)jarg["is_required"],
                     description = (string)jarg["description"],
-                    default_value = jarg["default_value"].ToString()
+                    default_value = ""
                 });
             }
             return method;
@@ -304,17 +304,12 @@ namespace OkapiBrowser
         /// </summary>
         public List<ApiScope> GetScopes()
         {
-            var json = GetResponse(this.currentInstallation.base_url + "services/apiref/scopes");
-            var jscopes = JArray.Parse(json);
             var scopes = new List<ApiScope>();
-            foreach (JObject jscope in jscopes)
+            scopes.Add(new ApiScope
             {
-                scopes.Add(new ApiScope
-                {
-                    key = (string)jscope["key"],
-                    developers_description = (string)jscope["developers_description"],
-                });
-            }
+                key = "default",
+                developers_description = "OKAPI has only one, global scope",
+            });
             return scopes;
         }
     }
