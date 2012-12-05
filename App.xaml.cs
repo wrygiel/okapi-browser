@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace UsosApiBrowser
+namespace OkapiBrowser
 {
     public partial class App : Application
     {

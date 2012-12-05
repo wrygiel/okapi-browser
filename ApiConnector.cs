@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Web;
-using System.Windows.Input;
-using Newtonsoft.Json.Linq;
 
-namespace UsosApiBrowser
+namespace OkapiBrowser
 {
     /// <summary>
-    /// Description of an USOS API Installation.
+    /// Description of an OKAPI Installation.
     /// </summary>
     public class ApiInstallation
     {
@@ -19,13 +18,13 @@ namespace UsosApiBrowser
         public string base_url;
 
         /// <summary>
-        /// USOS API version string (or null if unknown).
+        /// OKAPI version string (or null if unknown).
         /// </summary>
         public string version;
     }
 
     /// <summary>
-    /// Description of a single argument of an USOS API method.
+    /// Description of a single argument of the OKAPI method.
     /// </summary>
     public class ApiMethodArgument
     {
@@ -36,7 +35,7 @@ namespace UsosApiBrowser
     }
 
     /// <summary>
-    /// Brief description of a single USOS API method.
+    /// Brief description of a single OKAPI method.
     /// </summary>
     public class ApiMethod
     {
@@ -64,7 +63,7 @@ namespace UsosApiBrowser
     }
 
     /// <summary>
-    /// Description of a single USOS API scope type.
+    /// Description of a single OKAPI scope type.
     /// </summary>
     public class ApiScope
     {
@@ -73,7 +72,7 @@ namespace UsosApiBrowser
     }
 
     /// <summary>
-    /// Full description of an USOS API method.
+    /// Full description of the OKAPI method.
     /// </summary>
     public class ApiMethodFull : ApiMethod
     {
@@ -104,8 +103,8 @@ namespace UsosApiBrowser
     }
 
     /// <summary>
-    /// Implenentation of a simple USOS API connector. It cas generate properly signed
-    /// OAuth requests and provides some USOS-API-specific helper functions.
+    /// Implenentation of a simple OKAPI connector. It cas generate properly signed
+    /// OAuth requests and provides some OKAPI-specific helper functions.
     /// </summary>
     public class ApiConnector
     {
@@ -120,15 +119,15 @@ namespace UsosApiBrowser
         public event EventHandler EndRequest;
 
         /// <summary>
-        /// USOS API installation which the ApiConnector uses for method calls.
+        /// OKAPI installation which the ApiConnector uses for method calls.
         /// </summary>
         public ApiInstallation currentInstallation;
 
         /// <summary>
-        /// Create new USOS API connector.
+        /// Create new OKAPI connector.
         /// </summary>
         /// <param name="installation">
-        ///     USOS API Installation which to initally use. This can be
+        ///     OKAPI Installation which to initally use. This can be
         ///     switched later.
         /// </param>
         public ApiConnector(ApiInstallation installation)
@@ -137,7 +136,7 @@ namespace UsosApiBrowser
         }
 
         /// <summary>
-        /// Switch connector to a different USOS API installation.
+        /// Switch connector to a different OKAPI installation.
         /// </summary>
         public void SwitchInstallation(ApiInstallation apiInstallation)
         {
@@ -182,10 +181,10 @@ namespace UsosApiBrowser
         }
 
         /// <summary>
-        /// Construct a signed USOS API URL which points to a given method with
+        /// Construct a signed OKAPI URL which points to a given method with
         /// given arguments.
         /// </summary>
-        /// <param name="method">USOS API method to call.</param>
+        /// <param name="method">OKAPI method to call.</param>
         /// <param name="args">A dictionary of method argument values for this call.</param>
         /// <param name="consumer_key">Your Consumer Key (if you want to sign this request).</param>
         /// <param name="consumer_secret">Your Consumer Secret (if you want to sign this request).</param>
@@ -234,7 +233,7 @@ namespace UsosApiBrowser
         }
 
         /// <summary>
-        /// Get a list of all public USOS API Installations. This list is propagated
+        /// Get a list of all public OKAPI Installations. This list is propagated
         /// among all the installations, so it should be the same, no matter which
         /// installation you call this method on.
         /// </summary>

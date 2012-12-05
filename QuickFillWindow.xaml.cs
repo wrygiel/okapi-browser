@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Collections.Generic;
 
-namespace UsosApiBrowser
+namespace OkapiBrowser
 {
     public partial class QuickFillWindow : Window
     {

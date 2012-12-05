@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace UsosApiBrowser
+namespace OkapiBrowser
 {
     public partial class BrowserWindow : Window
     {
@@ -20,7 +20,7 @@ namespace UsosApiBrowser
         public VarsCache varsCache = new VarsCache();
 
         /// <summary>
-        /// Used to connect to USOS API installations.
+        /// Used to connect to OKAPI installations.
         /// </summary>
         private ApiConnector apiConnector;
 
@@ -28,8 +28,8 @@ namespace UsosApiBrowser
         {
             InitializeComponent();
             MessageBox.Show("Please note, that this is a development tool only and it might be a bit buggy. " +
-                "However, this stands for this client application only, not the USOS API itself!",
-                "USOS API Browser", MessageBoxButton.OK, MessageBoxImage.Information);
+                "However, this stands for this client application only, not the OKAPI itself!",
+                "OKAPI Browser", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -45,8 +45,8 @@ namespace UsosApiBrowser
             this.varsCache.BindWithTextBox("token", this.tokenTextbox);
             this.varsCache.BindWithTextBox("token_secret", this.tokenSecretTextbox);
 
-            /* We use a "mother installation" for the first USOS API request. We need to
-             * get a list of all USOS API installations. */
+            /* We use a "mother installation" for the first OKAPI request. We need to
+             * get a list of all OKAPI installations. */
 
             var motherInstallation = new ApiInstallation
             {
@@ -72,7 +72,7 @@ namespace UsosApiBrowser
             }
             catch (WebException)
             {
-                MessageBox.Show("Error occured when trying to access USOS API mother server. Could not populate USOS API installations list.",
+                MessageBox.Show("Error occured when trying to access OKAPI mother server. Could not populate OKAPI installations list.",
                     "Network error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
 
@@ -485,10 +485,10 @@ namespace UsosApiBrowser
                     "Would you like to register a new Consumer Key now?", "Consumer Key is missing", MessageBoxButton.OKCancel,
                     MessageBoxImage.Question) == MessageBoxResult.OK)
                 {
-                    /* Direct the user to USOS API Developer Center. */
+                    /* Direct the user to OKAPI Sign Up page. */
                     try
                     {
-                        System.Diagnostics.Process.Start(this.apiConnector.GetURL(new ApiMethod { name = "developers/" }));
+                        System.Diagnostics.Process.Start(this.apiConnector.GetURL(new ApiMethod { name = "signup.html" }));
                     }
                     catch (Exception)
                     {

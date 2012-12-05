@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsosApiBrowser", "UsosApiBrowser.csproj", "{89F1F7BA-AF7A-4D12-8F45-A7D27DD663D5}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkapiBrowser", "OkapiBrowser.csproj", "{89F1F7BA-AF7A-4D12-8F45-A7D27DD663D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
