@@ -168,7 +168,11 @@ namespace OkapiBrowser
             {
                 WebRequest request = WebRequest.Create(url);
                 request.Timeout = 15000;
-                return ReadResponse(request.GetResponse());
+                request.Proxy = null;
+                using (WebResponse response = request.GetResponse())
+                {
+                    return ReadResponse(response);
+                }
             }
             catch (UriFormatException)
             {
