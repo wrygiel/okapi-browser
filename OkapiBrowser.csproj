@@ -27,7 +27,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://usosphp.mimuw.edu.pl/~rygielski/okapi-browser/</InstallUrl>
+    <InstallUrl>http://opencaching.pl/download/okapi-browser/</InstallUrl>
     <SupportUrl>https://github.com/wrygiel/okapi-browser</SupportUrl>
     <ErrorReportUrl>https://github.com/wrygiel/okapi-browser</ErrorReportUrl>
     <TargetCulture>en</TargetCulture>
@@ -36,7 +36,7 @@
     <SuiteName>OpenCaching API</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
-    <ApplicationRevision>29</ApplicationRevision>
+    <ApplicationRevision>32</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
